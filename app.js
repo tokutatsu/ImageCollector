@@ -2,11 +2,13 @@ const twitter = require('twitter');
 const client = new twitter(require('./token.json'));
 const fs = require('fs');
 const request = require('request');
-const id = require('./id.json');
+const scanf = require('scanf');
 
+var id = scanf('%s');   //画像を採取したいアカウントのIDを入力
 var array = [];
+
 var params = {
-    screen_name: id.sample,
+    screen_name: id,
     count : 200,
     include_rts : false
 };
@@ -20,11 +22,8 @@ client.get('statuses/user_timeline', params, function(error, tweets, response){
                     console.log(tweet.extended_entities.media[j].media_url);
                     array.push(tweet.extended_entities.media[j].media_url);
                 }
-            } else {
-                console.log("no image");
             }
         }
-        console.log(array);
         for(var i = 0; i < array.length; i++){
             request
                 .get(array[i])
