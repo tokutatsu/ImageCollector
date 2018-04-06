@@ -2,10 +2,11 @@ const twitter = require('twitter');
 const client = new twitter(require('./token.json'));
 const fs = require('fs');
 const request = require('request');
-var array = [];
+const id = require('./id.json');
 
+var array = [];
 var params = {
-    screen_name: '*****',
+    screen_name: id.sample,
     count : 200,
     include_rts : false
 };
@@ -31,7 +32,7 @@ client.get('statuses/user_timeline', params, function(error, tweets, response){
                     console.log('statusCode: ', res.statusCode);
                     console.log('content-length: ', res.headers['content-length']);
                 })
-                .pipe(fs.createWriteStream('./image/data' + [i] + '.jpg'));
+                .pipe(fs.createWriteStream('./image/data' + [i] + '.jpg')); //•Û‘¶‚·‚éêŠ‚ğw’è
         }
     }
 });
