@@ -32,7 +32,7 @@ client.get('statuses/user_timeline', params, function(error, tweets, response){
                     console.log('statusCode: ', res.statusCode);
                     console.log('content-length: ', res.headers['content-length']);
                 })
-                .pipe(fs.createWriteStream('./image/data' + [i] + '.jpg')); //•Û‘¶‚·‚éêŠ‚ğw’è
+                .pipe(fs.createWriteStream('./image/data' + [i] + '.jpg')); //ä¿å­˜ã™ã‚‹å ´æ‰€ã‚’æŒ‡å®š
         }
     }
 });
