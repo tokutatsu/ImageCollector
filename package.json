@@ -1,0 +1,27 @@
+{
+  "name": "imagecollector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "request": "^2.85.0",
+    "inherits": "^2.0.3",
+    "scanf": "^1.0.0",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tokutatsu/ImageCollector.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tokutatsu/ImageCollector/issues"
+  },
+  "homepage": "https://github.com/tokutatsu/ImageCollector#readme"
+}
