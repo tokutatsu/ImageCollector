@@ -40,17 +40,14 @@ function getImage (loop) {
 }
 
 function ArrayPush (tweets) {
-    for (var i = 0; i < tweets.length; i++) {
-        var tweet = tweets[i];
-        var extended = tweet.extended_entities;
-        if (extended) {
-            for(var j = 0; j < extended.media.length; j++) {
-                console.log(extended.media[j].media_url);
-                array.push(extended.media[j].media_url);
-            }
+    tweets.forEach( (tweet) => {
+        if (tweet.extended_entities) {
+            tweet.extended_entities.media.forEach( (media) => {
+                array.push(media.media_url);
+            });
         }
-    }
-    return tweet.id;
+    });
+    return tweets[tweets.length - 1].id;
 }
 
 function Preserve (cnt) {
