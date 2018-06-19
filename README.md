@@ -13,5 +13,5 @@ Twitterのアカウントを指定して、そのアカウントの過去3200ツ
   "access_token_secret" "***"
 }
 ```
-保存先は、``.pipe(fs.createWriteStream('./image/data' + [cnt++] + '.jpg')); ``
-の``./image/``の部分を変更することで可能。
+保存先の変更は、``.pipe(fs.createWriteStream('./image/data' + [cnt++] + '.jpg')); ``
+の``./image/``部分を変えることで可能。

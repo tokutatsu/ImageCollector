@@ -4,6 +4,7 @@ const fs = require('fs');
 const request = require('request');
 const scanf = require('scanf');
 
+console.log("アカウントのIDを入力してください:");
 var AccountId = scanf('%s');   //画像を採取したいアカウントのIDを入力
 var array = [];
 var MAX_LOOP = 16;
@@ -17,7 +18,7 @@ var params = {
 
 getImage(0);
 
-function getImage (loop) {
+function getImage(loop) {
     if (loop < MAX_LOOP) {
         client.get('statuses/user_timeline', params, (error, tweets, response) => {
             if (!error) {
@@ -39,10 +40,10 @@ function getImage (loop) {
     }
 }
 
-function ArrayPush (tweets) {
-    tweets.forEach( (tweet) => {
+function ArrayPush(tweets) {
+    tweets.forEach((tweet) => {
         if (tweet.extended_entities) {
-            tweet.extended_entities.media.forEach( (media) => {
+            tweet.extended_entities.media.forEach((media) => {
                 array.push(media.media_url);
             });
         }
@@ -50,7 +51,7 @@ function ArrayPush (tweets) {
     return tweets[tweets.length - 1].id;
 }
 
-function Preserve (cnt) {
+function Preserve(cnt) {
     request
         .get(array[cnt])
         .on('error', (err) => {
